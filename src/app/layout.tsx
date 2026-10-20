@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rydra",
-  description: "Rydra ek modern multi-vendor booking platform hai jahan users asaani se cars, bikes aur commercial",
+  description: "Rydra ek modern multi-vendor booking platform hai jahan users asaani se cars, bikes aur commercial vehicles book kar sakte h. Secure login, 
+  verified owners aur transparent pricing ke saath RYDRA mobility ko simple aur reliable banata h",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
