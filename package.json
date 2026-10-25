@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.13.0",
     "axios": "^1.20.0",
     "bcryptjs": "^3.0.3",
     "lucide-react": "^1.61.0",
@@ -18,7 +19,8 @@
     "next-auth": "^5.0.0-beta.32",
     "nodemailer": "^8.0.11",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-redux": "^9.3.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
