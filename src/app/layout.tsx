@@ -17,10 +17,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rydra",
-  description: "Rydra ek modern multi-vendor booking platform hai jahan users asaani se cars, bikes aur commercial vehicles book kar sakte h. Secure login verified owners aur transparent pricing ke saath RYDRA mobility ko simple aur reliable banata h",
+  description:
+    "Rydra ek modern multi-vendor booking platform hai jahan users asaani se cars, bikes aur commercial vehicles book kar sakte h. Secure login verified owners aur transparent pricing ke saath RYDRA mobility ko simple aur reliable banata h",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
@@ -29,9 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Provider>
           <ReduxProvider>
-          <InitUser>
-           {children}
-          </InitUser>
+            {/* If InitUser only synchronizes user state, keep it self-closing */}
+            <InitUser />
+            {children}
           </ReduxProvider>
         </Provider>
       </body>
