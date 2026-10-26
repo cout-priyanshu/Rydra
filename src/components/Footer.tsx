@@ -1,16 +1,43 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  Facebook, 
-  Instagram, 
-  Twitter, 
-  Linkedin, 
   Mail, 
   Phone, 
   MapPin, 
   ArrowRight,
   ShieldCheck 
 } from 'lucide-react';
+
+// Custom clean SVGs for social icons to avoid lucide-react brand deprecation issues
+const FacebookIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const TwitterXIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const FOOTER_LINKS = {
   quickLinks: [
@@ -27,23 +54,16 @@ const FOOTER_LINKS = {
     { label: 'Passenger Vans', href: '#vans' },
     { label: 'Commercial Trucks', href: '#trucks' },
   ],
-  support: [
-    { label: 'Help & FAQ Center', href: '#faq' },
-    { label: 'Terms of Service', href: '#terms' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Trust & Safety', href: '#trust' },
-    { label: 'Contact Us', href: '#contact' },
-  ],
 };
 
 const SOCIAL_LINKS = [
-  { Icon: Facebook, href: '#', label: 'Facebook' },
-  { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Twitter, href: '#', label: 'Twitter' },
-  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { Icon: FacebookIcon, href: '#', label: 'Facebook' },
+  { Icon: InstagramIcon, href: '#', label: 'Instagram' },
+  { Icon: TwitterXIcon, href: '#', label: 'Twitter' },
+  { Icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
 ];
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className='w-full bg-zinc-950 text-zinc-100 border-t border-zinc-900'>
       <motion.div
@@ -53,10 +73,8 @@ function Footer() {
         viewport={{ once: true }}
         className='max-w-7xl mx-auto px-6 pt-16 pb-12'
       >
-        {/* Main Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-zinc-800/80'>
           
-          {/* Brand Info & Newsletter */}
           <div className='lg:col-span-2 space-y-5'>
             <div className='flex items-center gap-2'>
               <span className='h-2 w-2 rounded-full bg-emerald-500' />
@@ -67,7 +85,6 @@ function Footer() {
               India’s trusted mobility marketplace. Book verified vehicles from compact city scooters to commercial transport trucks with transparent upfront pricing.
             </p>
 
-            {/* Newsletter Subscription */}
             <div className='pt-2 max-w-sm'>
               <label htmlFor='newsletter-email' className='text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2 block'>
                 Stay updated on deals
@@ -89,7 +106,6 @@ function Footer() {
               </div>
             </div>
 
-            {/* Social Icons */}
             <div className='flex gap-3 pt-2'>
               {SOCIAL_LINKS.map(({ Icon, href, label }) => (
                 <motion.a
@@ -106,7 +122,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className='text-xs font-bold uppercase tracking-[0.16em] text-zinc-300 mb-4'>
               Explore
@@ -125,7 +140,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Vehicle Types */}
           <div>
             <h3 className='text-xs font-bold uppercase tracking-[0.16em] text-zinc-300 mb-4'>
               Fleet Types
@@ -144,7 +158,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Support & Contact Details */}
           <div>
             <h3 className='text-xs font-bold uppercase tracking-[0.16em] text-zinc-300 mb-4'>
               Contact & Support
@@ -171,7 +184,6 @@ function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
         <div className='pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-500 gap-4'>
           <p>© {new Date().getFullYear()} RYDRA Mobility Technologies Pvt. Ltd. All rights reserved.</p>
           
@@ -186,5 +198,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;
