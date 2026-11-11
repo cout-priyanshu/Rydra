@@ -26,6 +26,7 @@ export default function Nav() {
 
   const pathname = usePathname()
   const dispatch = useDispatch<AppDispatch>()
+  const router=useRouter()
   const { userData } = useSelector((state: RootState) => state.user)
 
   const handleLogOut = async () => {
